@@ -14,9 +14,9 @@ dotenv.config()
 
 function runBot() {
   // const TELEGRAM_TOKEN: string = config.get('TELEGRAM_TOKEN')
+  console.log('NODE_ENV', process.env.NODE_ENV)
   const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN as string;
   // console.log('TELEGRAM_TOKEN', TELEGRAM_TOKEN)
-  console.log(config.get('TEST_ENV'))
 
   const bot = new Telegraf(TELEGRAM_TOKEN)
   bot.use(session())
