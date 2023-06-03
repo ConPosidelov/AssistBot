@@ -1,6 +1,12 @@
 import { Configuration, OpenAIApi } from 'openai'
+import * as dotenv from 'dotenv'
 import config from 'config'
 import { createReadStream } from 'fs'
+
+dotenv.config()
+const OPENAI_KEY = process.env.OPENAI_KEY
+// console.log('OPENAI_KEY', OPENAI_KEY)
+
 class OpenAI {
   roles = {
     ASSISTANT: 'assistant',
@@ -37,4 +43,6 @@ class OpenAI {
     }
   }
 }
-export const openai = new OpenAI(config.get('OPENAI_KEY'))
+
+
+export const openai = new OpenAI(OPENAI_KEY)
